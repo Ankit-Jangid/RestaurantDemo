@@ -1,0 +1,2 @@
+rootProject.name = "RestrauntDemo"
+include ':app'
