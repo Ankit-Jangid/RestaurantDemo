@@ -10,7 +10,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.restrauntdemo.model.Menus
 import com.example.restrauntdemo.model.Restaurants
-import com.example.restrauntdemo.util.DataProvider
+import com.example.restrauntdemo.util.DataRepository
 import kotlinx.coroutines.*
 
 //For the sake of data fetching, common viewmodel can be used, for other extended business logics,
@@ -37,8 +37,8 @@ class RestaurantDishViewModel : ViewModel() {
 
 
     internal fun loadDummyData(context: Context) {
-        val restaurantsList = DataProvider(context).getRestaurantsList()
-        val menuList = DataProvider(context).getMenuList()
+        val restaurantsList = DataRepository(context).getRestaurantsList()
+        val menuList = DataRepository(context).getMenuList()
         restaurantsListLiveData.value = restaurantsList
         menuListLiveData.value = menuList
     }

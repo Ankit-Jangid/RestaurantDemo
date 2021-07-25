@@ -63,18 +63,15 @@ class SearchAdapter(val context: Context, val countListener: CountListener) :
         holder.itemMeta.text = resultList[position].type
     }
 
-
     override fun getItemCount(): Int {
         return resultList.size
     }
-
 
     class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val itemImage = view.findViewById<ImageView>(R.id.item_image)
         val itemName = view.findViewById<TextView>(R.id.item_name)
         val itemMeta = view.findViewById<TextView>(R.id.item_meta)
     }
-
 
 //     private fun streamFilter(query: String) {
 //        val list = restaurantsList.stream().filter().collect(Collectors.toList())
@@ -135,6 +132,4 @@ class SearchAdapter(val context: Context, val countListener: CountListener) :
     interface CountListener {
         fun onResultsSize(count: Int)
     }
-
-
 }

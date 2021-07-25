@@ -5,7 +5,6 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 
 object KeyboardExt {
-
     fun showKeyboard(context: Context) {
         val inputManager: InputMethodManager =
             context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -14,7 +13,6 @@ object KeyboardExt {
             InputMethodManager.HIDE_IMPLICIT_ONLY
         )
     }
-
     fun hideKeyboard(view: View, context: Context) {
         val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view.windowToken, 0)

@@ -9,10 +9,9 @@ import com.google.gson.reflect.TypeToken
 import org.json.JSONObject
 import java.io.IOException
 
-class DataProvider(val context: Context) {
-
+//Further this this class can serve data from server
+class DataRepository(val context: Context) {
     private val TAG = this::class.java.simpleName
-
     internal fun getRestaurantsList(): ArrayList<Restaurants> {
         val list = ArrayList<String>()
         val restaurantsList = ArrayList<Restaurants>()
@@ -39,20 +38,15 @@ class DataProvider(val context: Context) {
         try {
             jsonStr = context.assets?.open("menu.json")?.bufferedReader()
                 .use { it?.readText() ?: "" }
-
             val menusArray = JSONObject(jsonStr).optJSONArray("menus")
             val type = object : TypeToken<List<Menus>>() {}.type
             val menus: List<Menus> = Gson().fromJson(menusArray?.toString(), type)
             menuList.clear()
             menuList.addAll(menus)
-
-
         } catch (ioException: IOException) {
             ioException.printStackTrace()
         }
         Log.d(TAG, "menuList: $menuList")
         return menuList
     }
-
-
 }

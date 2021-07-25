@@ -49,7 +49,6 @@ class HomeFragment : Fragment() {
         binding.suggestionList.adapter = suggestionsAdapter
 
         restaurantDishViewModel.loadDummyData(requireContext())
-
         restaurantDishViewModel.restaurantsListLiveData.observe(viewLifecycleOwner, { it ->
             if (!it.isNullOrEmpty()) {
                 restaurantsAdapter.updateListData(it)

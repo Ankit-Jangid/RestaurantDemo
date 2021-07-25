@@ -24,11 +24,9 @@ class RestaurantsSuggestionsAdapter(val context: Context) :
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val restaurant = list[position]
-
         restaurant.run {
             holder.itemName.text = name
             holder.itemMeta.text = cuisine_type
-
 
             //if restaurant has image then it can be loaded as well
             val image = photograph //right now it's not URL
@@ -36,7 +34,6 @@ class RestaurantsSuggestionsAdapter(val context: Context) :
                 .load(R.drawable.ic_restaurant)
                 .into(holder.itemImage)
         }
-
     }
 
     override fun getItemCount(): Int {
